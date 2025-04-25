@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35931.197 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slutuppgift-SmartBook-Ditt-eget-bibliotekssystem", "Slutuppgift-SmartBook-Ditt-eget-bibliotekssystem\Slutuppgift-SmartBook-Ditt-eget-bibliotekssystem.csproj", "{3D024547-A0BD-4886-9972-0678EA1E6F42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bibliotekssystem.test", "bibliotekssystem.test\bibliotekssystem.test.csproj", "{867480E0-2BE2-486E-B496-8180980F7D40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3D024547-A0BD-4886-9972-0678EA1E6F42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D024547-A0BD-4886-9972-0678EA1E6F42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D024547-A0BD-4886-9972-0678EA1E6F42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{867480E0-2BE2-486E-B496-8180980F7D40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{867480E0-2BE2-486E-B496-8180980F7D40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{867480E0-2BE2-486E-B496-8180980F7D40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{867480E0-2BE2-486E-B496-8180980F7D40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

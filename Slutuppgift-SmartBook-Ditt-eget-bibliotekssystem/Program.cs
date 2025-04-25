@@ -1,10 +1,9 @@
-﻿namespace Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem
+﻿namespace Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem;
+
+internal class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World!");
-        }
+        Console.WriteLine("Hello, World!");
     }
 }
