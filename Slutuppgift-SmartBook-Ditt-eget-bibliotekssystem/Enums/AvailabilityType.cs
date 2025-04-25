@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Enums;
 
-internal class AvailabilityType
+public enum AvailabilityType
 {
+    Available,
+    Borrowed
 }
