@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Utils;
+
+public static class Util
+{
+    public static void Log(this string message)
+    {
+        Console.WriteLine(message);
+    }
+
+    public static string stringValidation(string input)
+    {
+        while (string.IsNullOrWhiteSpace(input))
+        {
+            "Input cannot be empty.".ErrorMsg();
+            input = Console.ReadLine();
+        }
+        return input.ToLower();
+    }
+
+    public static int intValidation(this string input)
+    {
+        int result;
+        while (!int.TryParse(input, out result) || result < 0)
+        {
+            Log("This is not a number, try again: ");
+            input = Console.ReadLine();
+        }
+        ;
+        return result;
+    }
+
+    public static void ErrorMsg(this string msg)
+    {
+        Log($"{new ArgumentException($"{msg}")}");
+    }
+}
