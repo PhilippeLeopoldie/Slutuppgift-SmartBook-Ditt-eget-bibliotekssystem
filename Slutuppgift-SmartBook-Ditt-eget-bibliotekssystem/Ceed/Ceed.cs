@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem;
 using Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Enums;
+using Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Utils;
 
 namespace Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Ceed;
 
@@ -23,5 +24,6 @@ internal static class Ceed
             new Book { Title = "The Vanishing Room", Author = "Emma Vale", Genre = GenreType.Mystery },
             new Book { Title = "Realmwalker", Author = "Kai Lennox", Genre = GenreType.Fantasy }
         );
+        "9 Books created!".Log();
     }
 }
