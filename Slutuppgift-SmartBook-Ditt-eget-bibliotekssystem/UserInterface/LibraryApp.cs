@@ -18,10 +18,11 @@ public static class LibraryApp
     {
         {1,"Ceed list of books" },
         {2,"Register a book" },
-        {3,"Remove a book" },
-        {4,"Display the list of books" },
-        {5,"Search book by title or author" },
-        {6,"Borrow a book" },
+        {3,"Remove a book by ISBN" },
+        {4,"Remove a book by title" },
+        {5,"Display the list of books" },
+        {6,"Search book by title or author" },
+        {7,"Borrow a book" },
         {0,"Exit" }
     };
 
@@ -50,13 +51,13 @@ public static class LibraryApp
                 $"-Book: {newBook} \nCreated!".Log();
                 break;
             case 3:
-                "-----Remove a book-----".Log();
+                "-----Remove a book by ISBN-----".Log();
                 if (library.Books.Count == 0) "No book registered yet.\n".Log();
                 else
                 {
                     "Enter the ISBN of the book to remove:".Log();
                     var isbn = Util.stringValidation(Console.ReadLine());
-                    var removedBook = library.RemoveBook(isbn);
+                    var removedBook = library.RemoveBookByISBN(isbn);
                     if (removedBook != null)
                     {
                         $"Book {removedBook} \nhas been removed!".Log();
@@ -66,12 +67,29 @@ public static class LibraryApp
                         "Book not found!".Log();
                     }
                 }
-                    
                 break;
             case 4:
-                library.DisplayBookList();
+                "-----Remove a book by Title-----".Log();
+                if (library.Books.Count == 0) "No book registered yet.\n".Log();
+                else
+                {
+                    "Enter the Title of the book to remove:".Log();
+                    var title = Util.stringValidation(Console.ReadLine());
+                    var removedBook = library.RemoveBookByTitle(title);
+                    if (removedBook != null)
+                    {
+                        $"Book {removedBook} \nhas been removed!".Log();
+                    }
+                    else
+                    {
+                        "Book not found!".Log();
+                    }
+                }
                 break;
             case 5:
+                library.DisplayBookList();
+                break;
+            case 6:
                 "\n-----Search book by title or author------".Log();
                 "Enter any title or author:".Log();
                 var foundBooks = library.SearchBooksByTitleOrAuthor(Util.stringValidation(Console.ReadLine()));
@@ -87,10 +105,10 @@ public static class LibraryApp
                     }
                 }
                 break;
-            case 6:
+            case 7:
                 "Borrow a book".Log();
                 break;
-            case 7:
+            case 8:
                 
                 break;
             case 0:

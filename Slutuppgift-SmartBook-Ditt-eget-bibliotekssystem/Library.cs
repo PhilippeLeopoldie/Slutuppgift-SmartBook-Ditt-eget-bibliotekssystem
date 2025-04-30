@@ -26,9 +26,23 @@ public class Library
         return book;
     }
 
-    public Book RemoveBook(string isbn)
+    public Book RemoveBookByISBN(string isbn)
     {
         var bookToRemove = Books.FirstOrDefault(book => book.Isbn == isbn);
+        if (bookToRemove != null)
+        {
+            Books.Remove(bookToRemove);
+            return bookToRemove;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public Book RemoveBookByTitle(string title)
+    {
+        var bookToRemove = Books.FirstOrDefault(book => book.Title == title);
         if (bookToRemove != null)
         {
             Books.Remove(bookToRemove);
