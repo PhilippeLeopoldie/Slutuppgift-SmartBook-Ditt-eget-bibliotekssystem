@@ -13,32 +13,8 @@ public class Book
 {
     public string Title { get; set; }
     public string Author { get; set; }
-    public string Isbn { get; set; } = new IsbnGenerator().GenerateIsbn13();
+    public string Isbn  = new Isbn13().GenerateIsbn13();
     
-
-
-    /*public string Title {
-        get => title; 
-        set
-        {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                "Title cannot be empty.".ErrorMsg();
-            }
-            title = value;
-        } 
-    }*/
-    /*public string Author { 
-        get => author;
-        set 
-        {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                "Author cannot be empty.".ErrorMsg();
-            }
-            author = value;
-        } 
-    }*/
     
     public GenreType Genre { get; set; }
     public AvailabilityType Availability { get; set; } = AvailabilityType.Available;
@@ -46,7 +22,7 @@ public class Book
 
     public override string ToString()
     {
-        return $"ISBN:{Isbn}, Title:{Title}, Author:{Author}, Genre:{Genre}, Availability:{Availability}";
+        var isbn13 = new Isbn13();
+        return $"ISBN:{isbn13.GetIsbn13Format(Isbn)}, Title:{Title}, Author:{Author}, Genre:{Genre}";
     }
-
 }
