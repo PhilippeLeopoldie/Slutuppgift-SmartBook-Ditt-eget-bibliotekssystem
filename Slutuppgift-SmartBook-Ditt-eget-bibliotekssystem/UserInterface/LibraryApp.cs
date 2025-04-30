@@ -50,7 +50,23 @@ public static class LibraryApp
                 $"-Book: {newBook} \nCreated!".Log();
                 break;
             case 3:
-                "Remove a book".Log();
+                "-----Remove a book-----".Log();
+                if (library.Books.Count == 0) "No book registered yet.\n".Log();
+                else
+                {
+                    "Enter the ISBN of the book to remove:".Log();
+                    var isbn = Util.stringValidation(Console.ReadLine());
+                    var removedBook = library.RemoveBook(isbn);
+                    if (removedBook != null)
+                    {
+                        $"Book {removedBook} \nhas been removed!".Log();
+                    }
+                    else
+                    {
+                        "Book not found!".Log();
+                    }
+                }
+                    
                 break;
             case 4:
                 library.DisplayBookList();
@@ -67,7 +83,7 @@ public static class LibraryApp
                 {
                     foreach (var book in foundBooks)
                     {
-                        Console.WriteLine(book);
+                        $"{book}".Log();
                     }
                 }
                 break;

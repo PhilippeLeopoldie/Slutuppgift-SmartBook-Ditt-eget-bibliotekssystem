@@ -26,6 +26,20 @@ public class Library
         return book;
     }
 
+    public Book RemoveBook(string isbn)
+    {
+        var bookToRemove = Books.FirstOrDefault(book => book.Isbn == isbn);
+        if (bookToRemove != null)
+        {
+            Books.Remove(bookToRemove);
+            return bookToRemove;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     public string displayGenres()
     {
         var genres = Enum
