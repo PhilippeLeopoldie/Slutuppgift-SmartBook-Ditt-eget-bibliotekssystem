@@ -14,6 +14,11 @@ public class Library
 
     public  Book AddBook(Book book)
     {
+        if (Books.Any(b => b.Isbn == book.Isbn))
+        {
+            "This ISBN already exists.\n".Log();
+            return null;
+        }
         Books.Add(book);
         return book;
     }
@@ -51,8 +56,8 @@ public class Library
         var genres = Enum
             .GetValues(typeof(GenreType))
             .Cast<GenreType>()
-            .Select( genre => $" {(int)genre}.{genre}");
-        return string.Join(',', genres);
+            .Select( genre => $"{(int)genre}.{genre}");
+        return string.Join(", ", genres);
     }
 
     public  void DisplayBookList()

@@ -48,6 +48,7 @@ public static class LibraryApp
                 break;
             case 2:
                 var newBook = library.AddBook(GetBookFromUserInput());
+                if (newBook == null) return;
                 $"-Book: {newBook} \nCreated!".Log();
                 break;
             case 3:
@@ -134,10 +135,5 @@ public static class LibraryApp
         library.displayGenres().Log();
         book.Genre = (GenreType)Util.intValidation(Console.ReadLine());
         return book;
-    }
-
-    private static bool IsnbIsValid(string isbn)
-    {
-        return library.Books.Any(book => book.Isbn == isbn);
     }
 }
