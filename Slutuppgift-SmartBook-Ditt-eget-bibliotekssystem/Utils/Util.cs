@@ -13,6 +13,21 @@ public static class Util
         Console.WriteLine(message);
     }
 
+    public static string IsbnValidation(string input)
+    {
+        while (string.IsNullOrWhiteSpace(input))
+        {
+            "Input cannot be empty.".ErrorMsg();
+            input = Console.ReadLine();
+        }
+        while (input?.Length != 13 )
+        {
+            "ISBN must be 13 characters long.".ErrorMsg();
+            input = Console.ReadLine();
+        }
+        return input;
+    }
+
     public static string stringValidation(string input)
     {
         while (string.IsNullOrWhiteSpace(input))

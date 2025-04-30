@@ -124,6 +124,8 @@ public static class LibraryApp
     {
         var book = new Book();
         "-----Book registration----:".Log();
+        "Enter book ISBN:".Log();
+        book.Isbn = Util.IsbnValidation(Console.ReadLine());
         "Enter book title:".Log();
         book.Title = Util.stringValidation(Console.ReadLine());
         "Enter book author:".Log();
@@ -134,5 +136,8 @@ public static class LibraryApp
         return book;
     }
 
-
+    private static bool IsnbIsValid(string isbn)
+    {
+        return library.Books.Any(book => book.Isbn == isbn);
+    }
 }
