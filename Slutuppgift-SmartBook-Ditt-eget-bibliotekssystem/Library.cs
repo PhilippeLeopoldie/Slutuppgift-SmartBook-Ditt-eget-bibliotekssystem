@@ -8,24 +8,25 @@ using Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Enums;
 using System.Reflection.Metadata.Ecma335;
 namespace Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem;
 
-public static class Library
+public class Library
 {
-    public static List<Book> Books { get; set; } = new List<Book>();
+    public  List<Book> Books { get; set; } = new List<Book>();
 
-    public static void AddBook(Book book)
+    public  Book AddBook(Book book)
     {
-        "-----Book registration----:".Log();
+        /*"-----Book registration----:".Log();
         "Enter book title:".Log();
         book.Title = Util.stringValidation(Console.ReadLine());
         "Enter book author:".Log();
         book.Author = Util.stringValidation(Console.ReadLine());
         "Choose a genre number among the following:".Log();
         displayGenres().Log();
-        book.Genre = (GenreType)Util.intValidation(Console.ReadLine());
+        book.Genre = (GenreType)Util.intValidation(Console.ReadLine());*/
         Books.Add(book);
+        return book;
     }
 
-    private static string displayGenres()
+    public string displayGenres()
     {
         var genres = Enum
             .GetValues(typeof(GenreType))
@@ -34,7 +35,7 @@ public static class Library
         return string.Join(',', genres);
     }
 
-    public static void DisplayBooks()
+    public  void DisplayBookList()
     {
         "-----Books list-----".Log();
         if (Books.Count == 0)
@@ -50,7 +51,7 @@ public static class Library
         }
     }
 
-    public static void SearchBooksByTitleOrAuthor()
+    public void SearchBooksByTitleOrAuthor()
     {
         if (Books.Count == 0)
         {
