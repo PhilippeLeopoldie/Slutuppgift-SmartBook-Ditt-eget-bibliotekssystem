@@ -37,4 +37,32 @@ public class UnitTest1
         // Assert
         Assert.Equal(numberOfBooks, library.Books.Count);
     }
+    [Fact]
+    public void Should_Found_Book_By_Title()
+    {
+        // Arrange
+        var library = new Library();
+        var book = new Book { Title = "Starfall", Author = "Alyssa Grey", Genre = GenreType.SciFi };
+        library.AddBook(book);
+
+        // Act
+        var foundBook = library.SearchBooksByTitleOrAuthor("Starfall");
+
+        // Assert
+        Assert.NotNull(foundBook);
+        Assert.Equal("Starfall", foundBook.FirstOrDefault().Title);
+    }
+    [Fact]
+    public void Should_Found_Book_By_Author()
+    {
+        // Arrange
+        var library = new Library();
+        var book = new Book { Title = "Starfall", Author = "Alyssa Grey", Genre = GenreType.SciFi };
+        library.AddBook(book);
+        // Act
+        var foundBook = library.SearchBooksByTitleOrAuthor("Alyssa Grey");
+        // Assert
+        Assert.NotNull(foundBook);
+        Assert.Equal("Alyssa Grey", foundBook.FirstOrDefault().Author);
+    }
 }
