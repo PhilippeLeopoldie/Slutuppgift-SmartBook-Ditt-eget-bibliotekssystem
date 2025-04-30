@@ -19,4 +19,22 @@ public class UnitTest1
         // Assert
             Assert.Single(library.Books);
     }
+    
+    [Theory]
+    [InlineData(2)]
+    [InlineData(5)]
+    [InlineData(10)]
+    public void Should_Add_Multiple_Books_In_The_List(int numberOfBooks)
+    {
+        // Arrange, Act
+        var library = new Library();
+        for(int i = 0; i < numberOfBooks; i++)
+        {
+            var book = new Book { Title = $"Book {i + 1}", Author = $"Author {i + 1}", Genre = GenreType.SciFi };
+            library.AddBook(book);
+        }
+    
+        // Assert
+        Assert.Equal(numberOfBooks, library.Books.Count);
+    }
 }
