@@ -16,7 +16,7 @@ public class Library
     {
         if (Books.Any(b => b.Isbn == book.Isbn))
         {
-            "This ISBN already exists.\n".Log();
+            $"ISBN: {book.Isbn} already exists.\n".Log();
             return null;
         }
         Books.Add(book);
