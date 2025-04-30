@@ -37,6 +37,7 @@ public class UnitTest1
         // Assert
         Assert.Equal(numberOfBooks, library.Books.Count);
     }
+
     [Fact]
     public void Should_Found_Book_By_Title()
     {
@@ -64,5 +65,36 @@ public class UnitTest1
         // Assert
         Assert.NotNull(foundBook);
         Assert.Equal("Alyssa Grey", foundBook.FirstOrDefault().Author);
+    }
+
+    [Fact]
+    public void Should_Remove_Book_From_List()
+    {
+        // Arrange
+        var library = new Library();
+        var book = new Book { Title = "Starfall", Author = "Alyssa Grey", Genre = GenreType.SciFi };
+        library.AddBook(book);
+        // Act
+        var removedBook = library.RemoveBook(book.Isbn);
+        // Assert
+        Assert.NotNull(removedBook);
+        Assert.Equal("Starfall", removedBook.Title);
+        Assert.Empty(library.Books);
+    }
+
+    [Theory]
+    [InlineData("1234567890123")]
+    [InlineData("9876543210987")]
+    [InlineData("1234567890124")]
+    public void Should_Return_Null_When_Book_Not_Found(string isbn)
+    {
+        // Arrange
+        var library = new Library();
+        var book = new Book { Title = "Starfall", Author = "Alyssa Grey", Genre = GenreType.SciFi };
+        library.AddBook(book);
+        // Act
+        var removedBook = library.RemoveBook(isbn);
+        // Assert
+        Assert.Null(removedBook);
     }
 }
