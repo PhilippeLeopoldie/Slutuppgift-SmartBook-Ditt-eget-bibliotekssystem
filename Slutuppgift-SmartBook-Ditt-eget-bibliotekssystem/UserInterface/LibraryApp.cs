@@ -46,8 +46,8 @@ public static class LibraryApp
                 $"The list has now {library.Books.Count} Books!".Log();
                 break;
             case 2:
-                var book = library.AddBook(GetBookFromUserInput());
-                $"-Book: {book} \nCreated!".Log();
+                var newBook = library.AddBook(GetBookFromUserInput());
+                $"-Book: {newBook} \nCreated!".Log();
                 break;
             case 3:
                 "Remove a book".Log();
@@ -56,7 +56,20 @@ public static class LibraryApp
                 library.DisplayBookList();
                 break;
             case 5:
-                library.SearchBooksByTitleOrAuthor();
+                "\n-----Search book by title or author------".Log();
+                "Enter any title or author:".Log();
+                var foundBooks = library.SearchBooksByTitleOrAuthor(Util.stringValidation(Console.ReadLine()));
+                if (foundBooks.Count == 0)
+                {
+                    "No books found!\n".Log();
+                }
+                else
+                {
+                    foreach (var book in foundBooks)
+                    {
+                        Console.WriteLine(book);
+                    }
+                }
                 break;
             case 6:
                 "Borrow a book".Log();

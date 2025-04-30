@@ -51,18 +51,19 @@ public class Library
         }
     }
 
-    public void SearchBooksByTitleOrAuthor()
+    public List<Book> SearchBooksByTitleOrAuthor(string input)
     {
         if (Books.Count == 0)
         {
-            "The list of books is empty.\n".Log();
+            "\nThe list of books is empty!".Log();
+            return new List<Book>();
         }
         else
         {
-            "Enter book title:".Log();
-            var input = Util.stringValidation(Console.ReadLine());
+            /*"Enter book title:".Log();
+            var input = Util.stringValidation(Console.ReadLine());*/
 
-            var booksByTitleOrAuthor = Books
+            return Books
                 .Where(book => book.Title
                 .Contains(input, StringComparison.OrdinalIgnoreCase)
             ||
@@ -70,7 +71,7 @@ public class Library
                 .Contains(input, StringComparison.OrdinalIgnoreCase))
                 .ToList();
 
-            if (booksByTitleOrAuthor.Count == 0)
+            /*if (booksByTitleOrAuthor.Count == 0)
             {
                 "No books found.\n".Log();
             }
@@ -80,7 +81,7 @@ public class Library
                 {
                     Console.WriteLine(book);
                 }
-            }
+            }*/
         }
     }
 }
