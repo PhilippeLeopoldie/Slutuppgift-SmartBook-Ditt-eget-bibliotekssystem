@@ -68,14 +68,14 @@ public class UnitTest1
     }
 
     [Fact]
-    public void Should_Remove_Book_From_List()
+    public void Should_Remove_Book_byISBN()
     {
         // Arrange
         var library = new Library();
         var book = new Book { Title = "Starfall", Author = "Alyssa Grey", Genre = GenreType.SciFi };
         library.AddBook(book);
         // Act
-        var removedBook = library.RemoveBook(book.Isbn);
+        var removedBook = library.RemoveBookByISBN(book.Isbn);
         // Assert
         Assert.NotNull(removedBook);
         Assert.Equal("Starfall", removedBook.Title);
@@ -86,14 +86,45 @@ public class UnitTest1
     [InlineData("1234567890123")]
     [InlineData("9876543210987")]
     [InlineData("1234567890124")]
-    public void Should_Return_Null_When_Book_Not_Found(string isbn)
+    public void Should_Return_Null_When_Wrong_ISBN(string isbn)
     {
         // Arrange
         var library = new Library();
         var book = new Book { Title = "Starfall", Author = "Alyssa Grey", Genre = GenreType.SciFi };
         library.AddBook(book);
         // Act
-        var removedBook = library.RemoveBook(isbn);
+        var removedBook = library.RemoveBookByISBN(isbn);
+        // Assert
+        Assert.Null(removedBook);
+    }
+
+    [Fact]
+    public void Should_Remove_Book_byTitle()
+    {
+        // Arrange
+        var library = new Library();
+        var book = new Book { Title = "Starfall", Author = "Alyssa Grey", Genre = GenreType.SciFi };
+        library.AddBook(book);
+        // Act
+        var removedBook = library.RemoveBookByTitle(book.Title);
+        // Assert
+        Assert.NotNull(removedBook);
+        Assert.Equal("Starfall", removedBook.Title);
+        Assert.Empty(library.Books);
+    }
+
+    [Theory]
+    [InlineData("wrongTitle1")]
+    [InlineData("wrongTitle2")]
+    [InlineData("wrongTitle3")]
+    public void Should_Return_Null_When_Wrong_Title(string title)
+    {
+        // Arrange
+        var library = new Library();
+        var book = new Book { Title = "Starfall", Author = "Alyssa Grey", Genre = GenreType.SciFi };
+        library.AddBook(book);
+        // Act
+        var removedBook = library.RemoveBookByTitle(title);
         // Assert
         Assert.Null(removedBook);
     }
