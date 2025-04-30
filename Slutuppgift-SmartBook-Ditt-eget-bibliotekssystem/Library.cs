@@ -14,14 +14,6 @@ public class Library
 
     public  Book AddBook(Book book)
     {
-        /*"-----Book registration----:".Log();
-        "Enter book title:".Log();
-        book.Title = Util.stringValidation(Console.ReadLine());
-        "Enter book author:".Log();
-        book.Author = Util.stringValidation(Console.ReadLine());
-        "Choose a genre number among the following:".Log();
-        displayGenres().Log();
-        book.Genre = (GenreType)Util.intValidation(Console.ReadLine());*/
         Books.Add(book);
         return book;
     }
@@ -88,9 +80,6 @@ public class Library
         }
         else
         {
-            /*"Enter book title:".Log();
-            var input = Util.stringValidation(Console.ReadLine());*/
-
             return Books
                 .Where(book => book.Title
                 .Contains(input, StringComparison.OrdinalIgnoreCase)
@@ -98,18 +87,6 @@ public class Library
                 book.Author
                 .Contains(input, StringComparison.OrdinalIgnoreCase))
                 .ToList();
-
-            /*if (booksByTitleOrAuthor.Count == 0)
-            {
-                "No books found.\n".Log();
-            }
-            else
-            {
-                foreach (var book in booksByTitleOrAuthor)
-                {
-                    Console.WriteLine(book);
-                }
-            }*/
         }
     }
 }
