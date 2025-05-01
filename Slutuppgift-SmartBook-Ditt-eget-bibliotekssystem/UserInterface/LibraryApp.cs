@@ -58,7 +58,7 @@ public static class LibraryApp
                 if (library.Books.Count == 0) "No book registered yet.\n".Log();
                 else
                 {
-                    "Enter the ISBN of the book to remove:".Log();
+                    "Enter the ISBN (13 digits) of the book to remove:".Log();
                     var isbn = Util.stringValidation(Console.ReadLine());
                     var removedBook = library.RemoveBookByISBN(isbn);
                     if (removedBook != null)
@@ -151,7 +151,6 @@ public static class LibraryApp
                 "-----Read library from JSON file-----".Log();
                 "Enter file name:".Log();
                 library.ReadLibraryFromJson(Util.stringValidation(Console.ReadLine()));
-                $"The list has now {library.Books.Count} Books!".Log();
                 break;
             case 0:
                 "Exit".Log();
