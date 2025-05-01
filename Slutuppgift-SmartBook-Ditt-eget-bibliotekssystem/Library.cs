@@ -94,4 +94,23 @@ public class Library
                 .ToList();
         }
     }
+
+    public Book SearchBookByIsbn(string isbn)
+    {
+        return Books.Where(book => book.Isbn == isbn).FirstOrDefault();
+    }
+
+    public Book BorrowBook(Book book)
+    {
+        if ( book.Availability == AvailabilityType.Available)
+        {
+            book.Availability = AvailabilityType.Borrowed;
+            return book;
+        }
+        else
+        {
+            $"The book {book} \nis already borrowed.".ErrorMsg();
+            return null;
+        }
+    }
 }

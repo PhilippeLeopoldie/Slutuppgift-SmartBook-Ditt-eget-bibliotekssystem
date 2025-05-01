@@ -107,7 +107,38 @@ public static class LibraryApp
                 }
                 break;
             case 7:
-                "Borrow a book".Log();
+                "------Borrow a book------".Log();
+                "Enter any title or author:".Log();
+                if (library.Books.Count == 0) "No book registered yet.\n".Log();
+                else
+                {
+                    var foundBooksToBorrow = library.SearchBooksByTitleOrAuthor(Util.stringValidation(Console.ReadLine()));
+                    if (foundBooksToBorrow.Count == 0)
+                    {
+                        "No books found!\n".Log();
+                        break;
+                    }
+                    else
+                    {
+                        foreach (var book in foundBooksToBorrow)
+                        {
+                            $"{book}".Log();
+                        }
+                        "Enter the ISBN of the book to borrow:".Log();
+                        var isbn = Util.IsbnValidation(Console.ReadLine());
+                        var bookToBorrow = library.SearchBookByIsbn(isbn);
+                        while (bookToBorrow == null)
+                        {
+                            $"ISBN:{isbn} not found, please try again:".Log();
+                            isbn = Util.IsbnValidation(Console.ReadLine());
+                            bookToBorrow = library.SearchBookByIsbn(isbn);
+                        }
+                        ;
+                        var result = library.BorrowBook(bookToBorrow);
+                        if (result == null) break;
+                        $"Book: {result} \nis now borrowed!".Log();
+                    }
+                }
                 break;
             case 8:
                 
