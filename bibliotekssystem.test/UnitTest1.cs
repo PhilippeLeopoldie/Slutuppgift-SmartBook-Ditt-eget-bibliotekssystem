@@ -195,4 +195,30 @@ public class UnitTest1
         // Assert
         Assert.Null(borrowedBook);
     }
+
+    [Fact]
+    public void Should_Save_LibraryToJson_And_CreatesValidJsonFile()
+    {
+        // Arrange
+        var library = new Library();
+        library.Books = new List<Book>
+        {
+            new Book { Title = "Test Book", Isbn = "123", Availability = AvailabilityType.Available }
+        };
+
+        string filePath = "test_library.json";
+
+        // Act
+        library.SaveLibraryToJson(filePath);
+
+        // Assert
+        Assert.True(File.Exists(filePath));
+        string content = File.ReadAllText(filePath);
+        Assert.Contains("Test Book", content);
+
+        // Clean up
+        File.Delete(filePath);
+    }
+
+    
 }
