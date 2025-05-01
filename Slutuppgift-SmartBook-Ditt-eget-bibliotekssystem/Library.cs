@@ -62,7 +62,7 @@ public class Library
 
     public  void DisplayBookList(List<Book> books)
     {
-        "-----Books list-----".Log();
+        "-----Books list sorted by title-----".Log();
         if (Books.Count == 0)
         {
             "No books registered yet.\n".Log();
