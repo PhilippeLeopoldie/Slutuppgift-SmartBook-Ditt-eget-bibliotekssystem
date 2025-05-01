@@ -23,6 +23,6 @@ public class Book
     public override string ToString()
     {
         var isbn13 = new Isbn13();
-        return $"ISBN:{isbn13.GetIsbn13Format(Isbn)}, Title:{Title}, Author:{Author}, Genre:{Genre}";
+        return $"ISBN:{isbn13.GetIsbn13Format(Isbn)}, Title:{Title}, Author:{Author}, Genre:{Genre}, Availability:{Availability}";
     }
 }
