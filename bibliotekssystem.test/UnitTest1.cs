@@ -64,7 +64,34 @@ public class UnitTest1
         var foundBook = library.SearchBooksByTitleOrAuthor("Alyssa Grey");
         // Assert
         Assert.NotNull(foundBook);
-        Assert.Equal("Alyssa Grey", foundBook.FirstOrDefault().Author);
+        Assert.Equal("Alyssa Grey", foundBook.FirstOrDefault()?.Author);
+    }
+
+    [Fact]
+    public void Should_Return_Book_When_SearchByISBN()
+    {
+        var library = new Library();
+        var book = new Book { Title = "Starfall", Author = "Alyssa Grey", Genre = GenreType.SciFi };
+        library.AddBook(book);
+        // Act
+        var result = library.SearchBookByIsbn(book.Isbn);
+        // Assert
+        Assert.NotNull(result);
+        Assert.Equal("Starfall", result.Title);
+        Assert.Equal("Alyssa Grey", result.Author);
+    }
+
+    [Fact]
+    public void Should_Return_Null_When_Search_With_WrongISBN()
+    {
+        // Arrange
+        var library = new Library();
+        var book = new Book { Title = "Starfall", Author = "Alyssa Grey", Genre = GenreType.SciFi };
+        library.AddBook(book);
+        // Act
+        var result = library.SearchBookByIsbn("wrongISBN");
+        // Assert
+        Assert.Null(result);
     }
 
     [Fact]
