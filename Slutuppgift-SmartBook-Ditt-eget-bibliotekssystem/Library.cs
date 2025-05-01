@@ -73,6 +73,7 @@ public class Library
             .OrderBy(book => book.Title)
             .ToList()
             .ForEach(book => $"{book}\n".Log());
+            $"The list has {books.Count} Books!".Log();
         }
     }
 
@@ -117,7 +118,7 @@ public class Library
     public void SaveLibraryToJson(string filePath)
     {
         File.WriteAllText($"{filePath}", JsonSerializer.Serialize(Books));
-        $"Library saved to JSON file.".Log();
+        $"'{filePath}' saved as JSON file.".Log();
         
     }
 
@@ -131,8 +132,7 @@ public class Library
         }
         else
         {
-            "No library file found.".Log();
+            $"No '{filePath}' file found!".Log();
         }
-
     }
 }
