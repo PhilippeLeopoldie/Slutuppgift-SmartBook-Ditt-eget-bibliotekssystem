@@ -34,7 +34,7 @@ Each book includes the following:
 
 3. **Use the interactive menu in the console**
 
--Menu:
+  ####  Menu:
 1. Ceed list of books
 
 2. Register a book
