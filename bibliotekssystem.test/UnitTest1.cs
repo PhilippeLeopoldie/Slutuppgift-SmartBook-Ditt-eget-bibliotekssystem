@@ -39,6 +39,26 @@ public class UnitTest1
     }
 
     [Fact]
+    public void Should_Not_Add_Book_With_Duplicate_ISBN()
+    {
+        // Arrange
+        var library = new Library();
+        var book1 = new Book { Title = "Original", Isbn = "01234567890123", Author = "Author A", Genre = GenreType.Action };
+        var book2 = new Book { Title = "Copy", Isbn = "01234567890123", Author = "Author B", Genre = GenreType.Drama };
+
+        library.AddBook(book1);
+
+        // Act
+        var result = library.AddBook(book2);
+
+        // Assert
+        Assert.Null(result);
+        Assert.Single(library.Books);
+        Assert.Equal("Original", library.Books[0].Title);
+    }
+
+
+    [Fact]
     public void Should_Found_Book_By_Title()
     {
         // Arrange
@@ -51,7 +71,7 @@ public class UnitTest1
 
         // Assert
         Assert.NotNull(foundBook);
-        Assert.Equal("Starfall", foundBook.FirstOrDefault().Title);
+        Assert.Equal("Starfall", foundBook.FirstOrDefault()?.Title);
     }
     [Fact]
     public void Should_Found_Book_By_Author()
@@ -219,6 +239,7 @@ public class UnitTest1
         // Clean up
         File.Delete(filePath);
     }
+
 
     
 }
