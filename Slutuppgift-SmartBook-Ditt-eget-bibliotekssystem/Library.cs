@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Utils;
 using Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Enums;
@@ -60,7 +60,7 @@ public class Library
         return string.Join(", ", genres);
     }
 
-    public  void DisplayBookList()
+    public  void DisplayBookList(List<Book> books)
     {
         "-----Books list-----".Log();
         if (Books.Count == 0)
@@ -69,7 +69,7 @@ public class Library
         }
         else 
         {
-            Books
+            books
             .OrderBy(book => book.Title)
             .ToList()
             .ForEach(book => $"{book}\n".Log());
@@ -114,22 +114,20 @@ public class Library
         }
     }
 
-    public void SaveLibraryToJson()
+    public void SaveLibraryToJson(string filePath)
     {
-        File.WriteAllText("library.json", System.Text.Json.JsonSerializer.Serialize(Books));
+        File.WriteAllText($"{filePath}", JsonSerializer.Serialize(Books));
         $"Library saved to JSON file.".Log();
         
     }
 
-
-
-    public void ReadLibraryFromJson()
+    public void ReadLibraryFromJson(string filePath)
     {
-        if (File.Exists("library.json"))
+        if (File.Exists($"{filePath}"))
         {
-            var json = File.ReadAllText("library.json");
-            var library = System.Text.Json.JsonSerializer.Deserialize<List<Book>>(json);
-            DisplayBookList();
+            var json = File.ReadAllText($"{filePath}");
+            var library = JsonSerializer.Deserialize<List<Book>>(json);
+            DisplayBookList(library);
         }
         else
         {

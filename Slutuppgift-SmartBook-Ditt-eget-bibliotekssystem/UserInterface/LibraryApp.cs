@@ -90,7 +90,7 @@ public static class LibraryApp
                 }
                 break;
             case 5:
-                library.DisplayBookList();
+                library.DisplayBookList(library.Books);
                 break;
             case 6:
                 "\n-----Search book by title or author------".Log();
@@ -144,12 +144,13 @@ public static class LibraryApp
                 break;
             case 8:
                 "-----Save library into JSON file-----".Log();
-                library.SaveLibraryToJson();
-
+                "Enter file name:".Log();
+                library.SaveLibraryToJson(Util.stringValidation(Console.ReadLine()));
                 break;
             case 9:
                 "-----Read library from JSON file-----".Log();
-                library.ReadLibraryFromJson();
+                "Enter file name:".Log();
+                library.ReadLibraryFromJson(Util.stringValidation(Console.ReadLine()));
                 $"The list has now {library.Books.Count} Books!".Log();
                 break;
             case 0:
