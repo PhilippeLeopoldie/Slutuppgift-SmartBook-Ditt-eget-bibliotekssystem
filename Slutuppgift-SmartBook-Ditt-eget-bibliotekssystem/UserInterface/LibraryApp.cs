@@ -23,6 +23,8 @@ public static class LibraryApp
         {5,"Display the list of books" },
         {6,"Search book by title or author" },
         {7,"Borrow a book" },
+        {8,"Save library into JSON file" },
+        {9,"Load library from JSON file" },
         {0,"Exit" }
     };
 
@@ -141,7 +143,14 @@ public static class LibraryApp
                 }
                 break;
             case 8:
-                
+                "-----Save library into JSON file-----".Log();
+                library.SaveLibraryToJson();
+
+                break;
+            case 9:
+                "-----Read library from JSON file-----".Log();
+                library.ReadLibraryFromJson();
+                $"The list has now {library.Books.Count} Books!".Log();
                 break;
             case 0:
                 "Exit".Log();

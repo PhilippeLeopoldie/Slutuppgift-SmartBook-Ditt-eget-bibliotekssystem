@@ -113,4 +113,28 @@ public class Library
             return null;
         }
     }
+
+    public void SaveLibraryToJson()
+    {
+        File.WriteAllText("library.json", System.Text.Json.JsonSerializer.Serialize(Books));
+        $"Library saved to JSON file.".Log();
+        
+    }
+
+
+
+    public void ReadLibraryFromJson()
+    {
+        if (File.Exists("library.json"))
+        {
+            var json = File.ReadAllText("library.json");
+            var library = System.Text.Json.JsonSerializer.Deserialize<List<Book>>(json);
+            DisplayBookList();
+        }
+        else
+        {
+            "No library file found.".Log();
+        }
+
+    }
 }
