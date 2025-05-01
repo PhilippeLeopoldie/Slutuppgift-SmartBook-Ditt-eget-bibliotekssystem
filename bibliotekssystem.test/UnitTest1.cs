@@ -128,4 +128,44 @@ public class UnitTest1
         // Assert
         Assert.Null(removedBook);
     }
+    [Fact]
+    public void Should_Display_Genres()
+    {
+        // Arrange
+        var library = new Library();
+        // Act
+        var genres = library.displayGenres();
+        // Assert
+        Assert.Contains("0.Action", genres);
+        Assert.Contains("1.Adventure", genres);
+        Assert.Contains("2.Comedy", genres);
+        Assert.Contains("3.Drama", genres);
+        Assert.Contains("4.Fantasy", genres);
+    }
+    [Fact]
+    public void Should_Borrow_Book()
+    {
+        // Arrange
+        var library = new Library();
+        var book = new Book { Title = "Starfall", Author = "Alyssa Grey", Genre = GenreType.SciFi };
+        library.AddBook(book);
+        // Act
+        var borrowedBook = library.BorrowBook(book);
+        // Assert
+        Assert.NotNull(borrowedBook);
+        Assert.Equal(AvailabilityType.Borrowed, borrowedBook.Availability);
+    }
+    
+    [Fact]
+    public void Should_Return_Null_When_Book_Not_Available()
+    {
+        // Arrange
+        var library = new Library();
+        var book = new Book { Title = "Starfall", Author = "Alyssa Grey", Genre = GenreType.SciFi, Availability = AvailabilityType.Borrowed };
+        library.AddBook(book);
+        // Act
+        var borrowedBook = library.BorrowBook(book);
+        // Assert
+        Assert.Null(borrowedBook);
+    }
 }
