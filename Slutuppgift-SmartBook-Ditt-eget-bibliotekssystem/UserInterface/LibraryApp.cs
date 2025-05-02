@@ -159,7 +159,7 @@ public static class LibraryApp
     {
         var book = new Book();
         "-----Book registration----:".Log();
-        "Enter book ISBN:".Log();
+        "Enter book ISBN(13 digits):".Log();
         book.Isbn = Util.IsbnValidation(Console.ReadLine());
         "Enter book title:".Log();
         book.Title = Util.stringValidation(Console.ReadLine());
