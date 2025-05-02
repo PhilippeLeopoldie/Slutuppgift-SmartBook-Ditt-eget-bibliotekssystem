@@ -34,7 +34,7 @@ Each book includes the following:
 
 3. **Use the interactive menu in the console**
 
--Menu:
+  ####  Menu:
 1. Ceed list of books
 
 2. Register a book
@@ -56,35 +56,35 @@ Each book includes the following:
 0. Exit
 
 
-## tests:
-### Unit Tests
 
-1.Should_Add_One_Book_In_The_List
+## Unit Tests
 
-2.Should_Add_Multiple_Books_In_The_List
+1. Should_Add_One_Book_In_The_List
 
-3.Should_Not_Add_Book_With_Duplicate_ISBN
+2. Should_Add_Multiple_Books_In_The_List
 
-4.Should_Found_Book_By_Title
+3. Should_Not_Add_Book_With_Duplicate_ISBN
 
-5.Should_Found_Book_By_Author
+4. Should_Found_Book_By_Title
 
-6.Should_Return_Book_When_SearchByISBN
+5. Should_Found_Book_By_Author
 
-7.Should_Return_Null_When_Search_With_WrongISBN
+6. Should_Return_Book_When_SearchByISBN
 
-8.Should_Remove_Book_byISBN
+7. Should_Return_Null_When_Search_With_WrongISBN
 
-9.Should_Return_Null_When_Wrong_ISBN
+8. Should_Remove_Book_byISBN
 
-10.Should_Remove_Book_byTitle
+9. Should_Return_Null_When_Wrong_ISBN
 
-11.Should_Return_Null_When_Wrong_Title
+10. Should_Remove_Book_byTitle
 
-12.Should_Display_Genres
+11. Should_Return_Null_When_Wrong_Title
 
-13.Should_Borrow_Book
+12. Should_Display_Genres
 
-14.Should_Return_Null_When_Book_Not_Available
+13. Should_Borrow_Book
 
-15.Should_Save_LibraryToJson_And_CreatesValidJsonFile
+14. Should_Return_Null_When_Book_Not_Available
+
+15. Should_Save_LibraryToJson_And_CreatesValidJsonFile
