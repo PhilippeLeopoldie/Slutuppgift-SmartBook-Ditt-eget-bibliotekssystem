@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Utils;
-using static Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Library;
+﻿using Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Utils;
 using static Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Ceed.Ceed;
 
 using Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Enums;

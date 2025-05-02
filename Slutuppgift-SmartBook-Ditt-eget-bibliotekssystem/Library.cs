@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text.Json;
-using System.Threading.Tasks;
 using Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Utils;
 using Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Enums;
-using System.Reflection.Metadata.Ecma335;
 namespace Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem;
 
 public class Library
