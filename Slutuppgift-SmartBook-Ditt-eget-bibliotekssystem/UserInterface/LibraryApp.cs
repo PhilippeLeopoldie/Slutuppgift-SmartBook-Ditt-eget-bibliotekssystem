@@ -110,10 +110,10 @@ public static class LibraryApp
                 break;
             case 7:
                 "------Borrow a book------".Log();
-                "Enter any title or author:".Log();
                 if (library.Books.Count == 0) "No book registered yet.\n".Log();
                 else
                 {
+                    "Enter any title or author:".Log();
                     var foundBooksToBorrow = library.SearchBooksByTitleOrAuthor(Util.stringValidation(Console.ReadLine()));
                     if (foundBooksToBorrow.Count == 0)
                     {
@@ -126,7 +126,7 @@ public static class LibraryApp
                         {
                             $"{book}".Log();
                         }
-                        "Enter the ISBN of the book to borrow:".Log();
+                        "\nEnter the ISBN (13 digits) of the book to borrow:".Log();
                         var isbn = Util.IsbnValidation(Console.ReadLine());
                         var bookToBorrow = library.SearchBookByIsbn(isbn);
                         while (bookToBorrow == null)
