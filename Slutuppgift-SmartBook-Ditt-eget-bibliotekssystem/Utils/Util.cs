@@ -20,6 +20,7 @@ public static class Util
             "Input cannot be empty.".ErrorMsg();
             input = Console.ReadLine();
         }
+        input.longValidation();
         while (input?.Length != 13 )
         {
             "ISBN must be 13 characters long.".ErrorMsg();
@@ -42,6 +43,18 @@ public static class Util
     {
         int result;
         while (!int.TryParse(input, out result) || result < 0)
+        {
+            Log("This is not a number, try again: ");
+            input = Console.ReadLine();
+        }
+        ;
+        return result;
+    }
+
+    public static long longValidation(this string input)
+    {
+        long result;
+        while (!long.TryParse(input, out result) || result < 0)
         {
             Log("This is not a number, try again: ");
             input = Console.ReadLine();
