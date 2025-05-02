@@ -15,9 +15,10 @@ public static class Util
             "Input cannot be empty.".ErrorMsg();
             input = Console.ReadLine();
         }
-        input.longValidation();
+        input = input.longValidation().ToString();
         while (input?.Length != 13 )
         {
+            input=input.longValidation().ToString();
             "ISBN must be 13 characters long.".ErrorMsg();
             input = Console.ReadLine();
         }
