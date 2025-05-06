@@ -78,7 +78,7 @@ public class Library
         if (Books.Count == 0)
         {
             "\nThe list of books is empty!".Log();
-            return new List<Book>();
+            return Books;
         }
         else
         {
