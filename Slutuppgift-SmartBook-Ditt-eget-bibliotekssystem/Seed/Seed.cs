@@ -2,7 +2,7 @@
 
 namespace Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Ceed;
 
-internal static class Ceed
+internal static class Seed
 {
     public static void CeedBookList(Library library)
     {

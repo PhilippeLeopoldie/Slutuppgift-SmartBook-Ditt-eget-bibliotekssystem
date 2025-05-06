@@ -1,5 +1,5 @@
 ﻿using Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Utils;
-using static Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Ceed.Ceed;
+using static Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Ceed.Seed;
 
 using Slutuppgift_SmartBook_Ditt_eget_bibliotekssystem.Enums;
 
@@ -10,7 +10,7 @@ public static class LibraryApp
     private static Library library = new Library();
     private static Dictionary<int, string> Menu = new Dictionary<int, string>
     {
-        {1,"Ceed list of books" },
+        {1,"Seed list of books" },
         {2,"Register a book" },
         {3,"Remove a book by ISBN" },
         {4,"Remove a book by title" },
